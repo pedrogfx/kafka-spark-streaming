@@ -1,2 +1,2 @@
-# kafka-spark-streaming
+# Spark Streaming
 Spark Streaming + Kafka Integration
