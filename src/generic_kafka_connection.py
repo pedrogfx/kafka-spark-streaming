@@ -137,12 +137,11 @@ path_table = project_id + layer_dataset + table_id
 path_bucket_table = bucket + layer_dataset + table_id
 
 if tmp.rdd.isEmpty():
-    print("DF Sem informação")
+    print("NULL DF")
 else:
-    write_gcs(tmp, 'overwrite', vpath, 'createdAtmetadata')
+    write_gcs(tmp, 'overwrite', vpath, 'DAT_TABLE')
     if check_table_exists(path_table, path_bucket_table) is False:
         create_table_external_hive_partitioned(
             path_table, path=vpath, project=path_bucket_table)
     else:
-        print("Tabela já existe!")
-    print("Não nulo")
+        print("Already exist table")
